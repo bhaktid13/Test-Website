@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CleverTap Integration</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript">
+        var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
+    // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
+   clevertap.account.push({"id": "Z44-Z4K-K65Z"});
+   clevertap.privacy.push({optOut: false}); //set the flag to true, if the user of the device opts out of sharing their data
+   clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agrees to share their IP data
+    (function () {
+            var wzrk = document.createElement('script');
+            wzrk.type = 'text/javascript';
+            wzrk.async = true;
+            wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';        
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wzrk, s);
+     })();
+   </script>
+</head>
+<body>
+    <header>
+        <h1>Signup Page</h1>
+    </header>
+    <main>
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="button-group">
+                <button type="button" onclick="login()">Login</button>
+                <button type="button" onclick="profilePush()">Profile Push</button>
+                <button type="button" onclick="askForPush()">Ask For Push</button>
+                <button type="button" onclick="raiseEvent()">Raise Event</button>
+            </div>
+            <div id="message"></div>
+        </form>
+    </main>
+    <section class="product">
+        <h2>Featured Product</h2>
+        <div class="product-details">
+            <img src="watch.jpg" alt="Product Image">
+            <div class="product-info">
+                <h3>Casio Chronograph Watch</h3>
+                <p>Category: Men's Accessories</p>
+                <p>Price: $59.99</p>
+                <button onclick="viewProduct()">View Product</button>
+            </div>
+        </div>
+    </section>
+    <section class="checkout">
+        <h2>Checkout</h2>
+        <div class="cart-items">
+            <ul>
+                <li>
+                    <span>The Millionaire next door</span>
+                    <span>Category: Books</span>
+                    <span>Quantity: 1</span>
+                </li>
+                <li>
+                    <span>Achieving inner zen</span>
+                    <span>Category: Books</span>
+                    <span>Quantity: 1</span>
+                </li>
+                <li>
+                    <span>Chuck it, let's do it</span>
+                    <span>Category: Books</span>
+                    <span>Quantity: 5</span>
+                </li>
+            </ul>
+        </div>
+        <div class="checkout-details">
+            <p>Total Amount: $300</p>
+            <p>Payment Mode: Credit Card</p>
+            <p>Charged ID: 24052013</p>
+            <button onclick="chargedEvent()">Proceed to Payment</button>
+        </div>
+    </section>
+    <script src="app.js"></script>
+</body>
+</html>
